@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adidas2.css">
+    <title>ADIDAS WEB</title>
+</head>
+<body>
+    <div class="container">
+        <!-- شريط التنقل العلوي الاحترافي -->
+        <nav>
+            <a class="logo" href="#">Adidas</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                
+                <!-- زر التحويل الأنيميشن الاحترافي من Uiverse -->
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle">
+                    <div class="theme-switch__container">
+                        <div class="theme-switch__circle-container">
+                            <div class="theme-switch__sun-moon-container">
+                                <div class="theme-switch__moon">
+                                    <span class="theme-switch__spot"></span>
+                                    <span class="theme-switch__spot"></span>
+                                    <span class="theme-switch__spot"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="theme-switch__clouds"></div>
+                        <div class="theme-switch__stars-container">
+                            <!-- SVG النجوم للوضع المظلم -->
+                            <svg xmlns="http://w3.org" viewBox="0 0 120 120" width="24" height="24" fill="currentColor">
+                                <path d="M15,20 Q20,20 20,15 Q20,20 25,20 Q20,20 20,25 Q20,20 15,20 Z M50,40 Q55,40 55,35 Q55,40 60,40 Q55,40 55,45 Q55,40 50,40 Z M80,20 Q85,20 85,15 Q85,20 90,20 Q85,20 85,25 Q85,20 80,20 Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </label>
+            </ul>
+        </nav>
+
+        <!-- قسم المحتوى الرئيسي المتوازن -->
+        <div class="content">
+            <div class="text">
+                <h2>Welcome to Adidas</h2>
+                <p>Discover the latest in sportswear and footwear. Experience ultimate comfort, premium design, and top-tier performance crafted for champions.</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+            <div class="image">
+                <!-- تأكد من وجود صورة حذاء مفرغة PNG باسم shoes.png بجانب الملف -->
+                <img src="shoes.png" alt="Adidas Shoes">
+            </div>
+        </div>
+    </div>
+
+    <!-- كود الـ JavaScript لتفعيل الحركات وحفظ الوضع في المتصفح -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // فحص الذاكرة المحلية لتفعيل الوضع المحفوظ سابقاً
+        if (localStorage.getItem('adidas-theme') === 'dark') {
+            toggleBtn.checked = true;
+            body.classList.add('dynamic-dark');
+        }
+
+        // الاستماع لعملية التحويل الديناميكية
+        toggleBtn.addEventListener('change', () => {
+            if (toggleBtn.checked) {
+                body.classList.add('dynamic-dark');
+                localStorage.setItem('adidas-theme', 'dark');
+            } else {
+                body.classList.remove('dynamic-dark');
+                localStorage.setItem('adidas-theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
